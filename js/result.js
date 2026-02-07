@@ -4,7 +4,7 @@ let typeData = {};
 
 // Kakao SDK 초기화
 if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
-    Kakao.init('40c91cf293a5d7853e746368a8489138'); // JavaScript 키
+    Kakao.init('1abe40bb8385bee1ed1d7f08e18fa3e0'); // JavaScript 키
 }
 
 // 페이지 로드 시 실행
