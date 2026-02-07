@@ -4,6 +4,8 @@ let answers = {}; // { questionId: 'E' or 'I' or 'S' or 'N' ... }
 
 // 페이지 로드 시 초기화
 document.addEventListener('DOMContentLoaded', function() {
+    // 랜덤 질문 생성
+    questions = selectRandomQuestions();
     showQuestion(currentQuestion);
 });
 
