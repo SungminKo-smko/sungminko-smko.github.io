@@ -87,6 +87,62 @@ const questionPool = {
                 { text: '새로운 사람들과 금방 친해져요 👥', value: 'E' },
                 { text: '아는 사람 옆에 있는 게 편해요 🙋', value: 'I' }
             ]
+        },
+        {
+            question: '점심시간에 밥을 먹을 때',
+            options: [
+                { text: '여러 친구들과 함께 왁자지껄 먹어요 🍱', value: 'E' },
+                { text: '친한 친구 한두 명이랑 조용히 먹어요 🥢', value: 'I' }
+            ]
+        },
+        {
+            question: '선생님이 "자유 시간!"이라고 하면',
+            options: [
+                { text: '친구들을 불러 모아 같이 뭔가 해요 🙌', value: 'E' },
+                { text: '내가 하고 싶은 걸 혼자 조용히 해요 🎵', value: 'I' }
+            ]
+        },
+        {
+            question: '가족 여행을 가면',
+            options: [
+                { text: '현지 사람이나 다른 여행객들과 말을 걸어봐요 🗺️', value: 'E' },
+                { text: '가족끼리만 조용히 둘러봐요 🏔️', value: 'I' }
+            ]
+        },
+        {
+            question: '오늘 기분이 안 좋을 때',
+            options: [
+                { text: '친구한테 이야기하면서 풀어요 😤', value: 'E' },
+                { text: '혼자 있으면서 마음을 가라앉혀요 🌙', value: 'I' }
+            ]
+        },
+        {
+            question: '체육 시간에 팀을 나눌 때',
+            options: [
+                { text: '빨리 팀을 만들고 신나게 시작해요 🏃', value: 'E' },
+                { text: '소수 인원으로 하거나 개인전이 더 좋아요 🎯', value: 'I' }
+            ]
+        },
+        {
+            question: '학교 행사(운동회, 학예회)가 생기면',
+            options: [
+                { text: '많은 친구들과 함께해서 더 재미있어요 🎪', value: 'E' },
+                { text: '준비 과정이 조금 피곤하게 느껴져요 😮‍💨', value: 'I' }
+            ]
+        },
+        {
+            question: '모르는 사람에게 길을 물어봐야 할 때',
+            options: [
+                { text: '주저 없이 말을 걸어요 🙋', value: 'E' },
+                { text: '좀 망설이다가 물어보거나 다른 방법을 찾아요 📱', value: 'I' }
+            ]
+        },
+        {
+            question: '수업이 끝나고 학원에 가기 전 잠깐 시간이 생겼어요',
+            options: [
+                { text: '근처 친구한테 연락해서 같이 뭔가 해요 📲', value: 'E' },
+                { text: '혼자 좋아하는 걸 하며 재충전해요 🔋', value: 'I' }
+            ]
         }
     ],
 
@@ -174,6 +230,62 @@ const questionPool = {
             options: [
                 { text: '어떻게 작동하는지 확인해요 🔧', value: 'S' },
                 { text: '뭘 만들 수 있을지 상상해요 💭', value: 'N' }
+            ]
+        },
+        {
+            question: '내가 좋아하는 이야기는?',
+            options: [
+                { text: '실제로 있었던 위인 이야기나 역사 이야기 📜', value: 'S' },
+                { text: '마법사, 우주, 시간 여행 같은 상상 속 이야기 🧙‍♂️', value: 'N' }
+            ]
+        },
+        {
+            question: '여행을 간다면 어디가 좋아요?',
+            options: [
+                { text: '유명한 관광지, 맛있는 음식이 있는 곳 🍜', value: 'S' },
+                { text: '신비롭고 색다른 경험을 할 수 있는 낯선 곳 🌋', value: 'N' }
+            ]
+        },
+        {
+            question: '수학 문제를 풀 때',
+            options: [
+                { text: '공식대로 계산해서 정확한 답을 구해요 ➗', value: 'S' },
+                { text: '다른 방법으로도 풀 수 있는지 생각해봐요 💡', value: 'N' }
+            ]
+        },
+        {
+            question: '친구가 "내일 뭐 할까?" 라고 물으면',
+            options: [
+                { text: '평소에 자주 하던 것 중에 고르자고 해요 ⚽', value: 'S' },
+                { text: '해본 적 없는 새로운 걸 제안해요 ✨', value: 'N' }
+            ]
+        },
+        {
+            question: '국어 시간 글쓰기를 할 때',
+            options: [
+                { text: '실제 경험이나 사실을 바탕으로 써요 ✏️', value: 'S' },
+                { text: '상상해서 독특한 이야기를 만들어요 🌈', value: 'N' }
+            ]
+        },
+        {
+            question: '생일 선물을 고를 때',
+            options: [
+                { text: '친구가 필요하다고 한 것, 좋아한다고 한 것으로 골라요 🎁', value: 'S' },
+                { text: '친구가 생각 못 했을 것 같은 새로운 것으로 골라요 🎀', value: 'N' }
+            ]
+        },
+        {
+            question: '요리를 해본다면?',
+            options: [
+                { text: '레시피를 보면서 정확하게 따라 만들어요 🍳', value: 'S' },
+                { text: '재료를 보고 즉흥적으로 내 방식대로 만들어요 👨‍🍳', value: 'N' }
+            ]
+        },
+        {
+            question: '대화를 할 때 나는',
+            options: [
+                { text: '구체적인 사실, 있었던 일을 이야기해요 📅', value: 'S' },
+                { text: '아이디어, 가능성, 상상 이야기를 하는 게 재미있어요 🌐', value: 'N' }
             ]
         }
     ],
@@ -263,6 +375,62 @@ const questionPool = {
                 { text: '유용한 걸 선물해요 🎁', value: 'T' },
                 { text: '좋아할 만한 걸 선물해요 💝', value: 'F' }
             ]
+        },
+        {
+            question: '친구가 자기가 그린 그림을 보여줬는데 좀 이상해 보여요',
+            options: [
+                { text: '잘된 점과 고칠 점을 솔직히 말해줘요 🖊️', value: 'T' },
+                { text: '"멋지다!" 라고 격려해줘요 🌟', value: 'F' }
+            ]
+        },
+        {
+            question: '두 친구가 다투고 있어요. 내가 본다면?',
+            options: [
+                { text: '누가 맞고 틀린지 따져봐요 ⚖️', value: 'T' },
+                { text: '둘 다 기분이 안 상하도록 중간에서 화해시켜요 🤝', value: 'F' }
+            ]
+        },
+        {
+            question: '동물원에 갔어요. 어떤 생각이 먼저 드나요?',
+            options: [
+                { text: '이 동물은 어떤 종류이고 어디서 사는지 궁금해요 🔍', value: 'T' },
+                { text: '동물들이 좁은 곳에 갇혀 있어서 안쓰럽게 느껴져요 🐘', value: 'F' }
+            ]
+        },
+        {
+            question: '뭔가를 배울 때 가장 도움이 되는 건?',
+            options: [
+                { text: '왜 그런지 논리적인 이유를 알려주는 것 🧠', value: 'T' },
+                { text: '잘 할 수 있다고 응원해주는 것 💪', value: 'F' }
+            ]
+        },
+        {
+            question: '나는 주로 어떤 꿈을 꿔요?',
+            options: [
+                { text: '신기한 모험, 문제 해결, 발명 같은 꿈 🚀', value: 'T' },
+                { text: '좋아하는 사람들과 함께 있거나 감동적인 꿈 🌸', value: 'F' }
+            ]
+        },
+        {
+            question: '팀이 게임에서 졌어요',
+            options: [
+                { text: '어디서 실수했는지 분석해요 📊', value: 'T' },
+                { text: '다들 실망할까봐 먼저 위로해요 💙', value: 'F' }
+            ]
+        },
+        {
+            question: '엄마가 내 방을 치우라고 했을 때',
+            options: [
+                { text: '왜 치워야 하는지 이유가 납득되어야 해요 🤔', value: 'T' },
+                { text: '엄마 기분을 위해 일단 치워요 🧹', value: 'F' }
+            ]
+        },
+        {
+            question: '발표를 잘 했을 때 듣고 싶은 말은?',
+            options: [
+                { text: '"내용이 정확하고 논리적이었어!" 📋', value: 'T' },
+                { text: '"정말 열심히 준비했구나, 감동받았어!" 🥹', value: 'F' }
+            ]
         }
     ],
 
@@ -350,6 +518,62 @@ const questionPool = {
             options: [
                 { text: '10분 일찍 도착해요 ⏰', value: 'J' },
                 { text: '딱 맞춰서 또는 조금 늦게 와요 ⌚', value: 'P' }
+            ]
+        },
+        {
+            question: '독후감 숙제가 생겼어요',
+            options: [
+                { text: '책 읽고 바로 쓰기 시작해요 📝', value: 'J' },
+                { text: '제출 전날에 쓰는 경우가 많아요 😬', value: 'P' }
+            ]
+        },
+        {
+            question: '친구들이랑 뭘 먹을지 정할 때',
+            options: [
+                { text: '빨리 결정해서 진도를 나가고 싶어요 ✅', value: 'J' },
+                { text: '여러 메뉴를 천천히 고민하고 싶어요 🍕🍣🍜', value: 'P' }
+            ]
+        },
+        {
+            question: '방학을 앞두고',
+            options: [
+                { text: '무엇을 할지 미리 계획을 세워요 📅', value: 'J' },
+                { text: '일단 방학이 시작되면 그때 생각해요 🌞', value: 'P' }
+            ]
+        },
+        {
+            question: '수업 중 노트 필기는?',
+            options: [
+                { text: '깔끔하게 정리하면서 써요 🗂️', value: 'J' },
+                { text: '생각나는 대로 여기저기 써요 🖍️', value: 'P' }
+            ]
+        },
+        {
+            question: '오늘 할 일을 다 마쳤을 때',
+            options: [
+                { text: '뿌듯하고 마음이 편해요 😌', value: 'J' },
+                { text: '내일 해도 되는 것까지 굳이 다 했나 싶어요 😅', value: 'P' }
+            ]
+        },
+        {
+            question: '소풍 날 입을 옷을 고를 때',
+            options: [
+                { text: '전날 미리 다 골라놔요 👕', value: 'J' },
+                { text: '아침에 옷장 앞에서 즉흥적으로 골라요 🎽', value: 'P' }
+            ]
+        },
+        {
+            question: '만화책을 읽을 때',
+            options: [
+                { text: '처음부터 끝까지 순서대로 읽어야 해요 1️⃣', value: 'J' },
+                { text: '재미있는 장면부터 이것저것 펼쳐서 읽어요 🔀', value: 'P' }
+            ]
+        },
+        {
+            question: '친구가 갑자기 "지금 당장 놀러 가자!"라고 해요',
+            options: [
+                { text: '오늘 계획이 있는지 먼저 확인해요 🗓️', value: 'J' },
+                { text: '좋아! 바로 나가요 😄', value: 'P' }
             ]
         }
     ]
