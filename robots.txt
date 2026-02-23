@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# 사이트맵 위치
+Sitemap: https://sungminko-smko.github.io/sitemap.xml
+
+# Google AdSense 스크립트 크롤링 허용
+User-agent: Mediapartners-Google
+Allow: /
