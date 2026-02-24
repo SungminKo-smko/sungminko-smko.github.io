@@ -6,7 +6,7 @@
     <title>ESFP (연예인) 성격 유형 | 어린이 MBTI</title>
     <meta name="description" content="ESFP 연예인 유형의 특징, 강점, 약점, 학교생활까지 어린이도 이해하기 쉽게 설명합니다. ESFP인 나는 어떤 사람일까요?">
     <link rel="stylesheet" href="../css/common.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3303070081473891" crossorigin="anonymous"></script>
     <style>
         .type-hero {
@@ -60,8 +60,14 @@
 <body>
 <nav class="site-nav">
     <div class="nav-inner">
-        <a href="../index.html" class="nav-logo"><span>🌟</span> 어린이 MBTI</a>
-        <div class="nav-links">
+        <a href="../index.html" class="nav-logo">
+            <span class="nav-logo-icon">🌟</span>
+            <span>어린이 MBTI</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
             <a href="../index.html">홈</a>
             <a href="../about.html">소개</a>
             <a href="index.html" class="active">MBTI 정보</a>
@@ -118,5 +124,20 @@
     </div>
     <p>© 2026 어린이 MBTI 성격 검사. 교육·오락 목적의 무료 서비스입니다.</p>
 </footer>
+
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", () => {
+        navToggle.classList.toggle("open");
+        navLinks.classList.toggle("open");
+    });
+    document.addEventListener("click", (e) => {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+            navToggle.classList.remove("open");
+            navLinks.classList.remove("open");
+        }
+    });
+</script>
 </body>
 </html>

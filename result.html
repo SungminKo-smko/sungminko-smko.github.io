@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나의 MBTI 결과 🎉</title>
+    <title>나의 MBTI 결과 🎉 | 어린이 MBTI</title>
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/result.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3303070081473891" crossorigin="anonymous"></script>
     <!-- Kakao SDK -->
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4" crossorigin="anonymous"></script>
@@ -12,111 +14,146 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
+
+<!-- 네비게이션 -->
+<nav class="site-nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <span class="nav-logo-icon">🌟</span>
+            <span>어린이 MBTI</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">홈</a>
+            <a href="about.html">소개</a>
+            <a href="articles/index.html">MBTI 정보</a>
+            <a href="contact.html">문의</a>
+            <a href="privacy.html">개인정보</a>
+        </div>
+    </div>
+</nav>
+
+<!-- 결과 메인 -->
+<main class="result-main">
     <div class="container">
-        <div class="confetti">🎉</div>
-        
-        <header>
+
+        <!-- 헤더 -->
+        <div class="result-header">
             <h1>검사 완료! 🎊</h1>
             <p class="subtitle">당신의 성격 유형은...</p>
-        </header>
+        </div>
 
-        <main>
-            <!-- 결과 카드 -->
-            <div class="result-card" id="resultCard">
-                <div class="character-emoji" id="characterEmoji">🦊</div>
-                <h2 class="mbti-type" id="mbtiType">INFP</h2>
-                <h3 class="type-name" id="typeName">꿈꾸는 이상주의자</h3>
-                <p class="character-name" id="characterName">🦄 유니콘</p>
-                <p class="description" id="description">상상력이 풍부하고 따뜻한 마음을 가진 친구예요!</p>
-            </div>
+        <!-- 결과 카드 -->
+        <div class="result-card" id="resultCard">
+            <div class="confetti">🎉</div>
+            <div class="character-emoji" id="characterEmoji">🦊</div>
+            <h2 class="mbti-type" id="mbtiType">INFP</h2>
+            <h3 class="type-name" id="typeName">꿈꾸는 이상주의자</h3>
+            <p class="character-name" id="characterName">🦄 유니콘</p>
+            <p class="description" id="description">상상력이 풍부하고 따뜻한 마음을 가진 친구예요!</p>
+        </div>
 
-            <!-- 특징 -->
-            <div class="traits-section">
-                <h3>✨ 나의 특징</h3>
-                <ul class="traits-list" id="traitsList">
-                    <!-- JavaScript로 동적 생성 -->
-                </ul>
-            </div>
+        <!-- 특징 -->
+        <div class="traits-section">
+            <h3>✨ 나의 특징</h3>
+            <ul class="traits-list" id="traitsList">
+                <!-- JavaScript로 동적 생성 -->
+            </ul>
+        </div>
 
-            <!-- 공유 버튼 -->
-            <div class="share-section">
-                <h3>🎁 친구들에게 공유하기</h3>
-                <div class="share-buttons">
-                    <button class="share-btn kakao-btn" onclick="shareKakao()">
-                        💬 카카오톡
-                    </button>
-                    <button class="share-btn sms-btn" onclick="shareSMS()">
-                        📱 문자메시지
-                    </button>
-                    <button class="share-btn link-btn" onclick="shareLink()">
-                        🔗 링크 복사
-                    </button>
-                    <button class="share-btn save-btn" onclick="saveImage()">
-                        📸 이미지 저장
-                    </button>
-                </div>
-            </div>
-
-            <!-- 궁합 보기 -->
-            <div class="compatibility-section">
-                <h3>💕 친구와 궁합 보기</h3>
-                <p class="compatibility-desc">친구의 MBTI 유형을 선택해보세요!</p>
-                <select id="friendType" class="friend-select">
-                    <option value="">친구 유형 선택하기</option>
-                    <option value="ISTJ">ISTJ - 비버</option>
-                    <option value="ISFJ">ISFJ - 코알라</option>
-                    <option value="INFJ">INFJ - 부엉이</option>
-                    <option value="INTJ">INTJ - 독수리</option>
-                    <option value="ISTP">ISTP - 고양이</option>
-                    <option value="ISFP">ISFP - 토끼</option>
-                    <option value="INFP">INFP - 유니콘</option>
-                    <option value="INTP">INTP - 여우</option>
-                    <option value="ESTP">ESTP - 호랑이</option>
-                    <option value="ESFP">ESFP - 플라밍고</option>
-                    <option value="ENFP">ENFP - 돌고래</option>
-                    <option value="ENTP">ENTP - 앵무새</option>
-                    <option value="ESTJ">ESTJ - 사자</option>
-                    <option value="ESFJ">ESFJ - 강아지</option>
-                    <option value="ENFJ">ENFJ - 기린</option>
-                    <option value="ENTJ">ENTJ - 티라노</option>
-                </select>
-                <button class="check-compatibility-btn" onclick="checkCompatibility()">
-                    궁합 확인하기 ✨
+        <!-- 공유 버튼 -->
+        <div class="share-section">
+            <h3>🎁 친구들에게 공유하기</h3>
+            <div class="share-buttons">
+                <button class="share-btn kakao-btn" onclick="shareKakao()">
+                    💬 카카오톡
                 </button>
-                <div id="compatibilityResult" class="compatibility-result" style="display:none;">
-                    <!-- JavaScript로 동적 생성 -->
-                </div>
+                <button class="share-btn sms-btn" onclick="shareSMS()">
+                    📱 문자메시지
+                </button>
+                <button class="share-btn link-btn" onclick="shareLink()">
+                    🔗 링크 복사
+                </button>
+                <button class="share-btn save-btn" onclick="saveImage()">
+                    📸 이미지 저장
+                </button>
             </div>
+        </div>
 
-            <!-- 다시하기 버튼 -->
-            <button class="restart-button" onclick="restart()">
-                다시 검사하기 🔄
+        <!-- 궁합 보기 -->
+        <div class="compatibility-section">
+            <h3>💕 친구와 궁합 보기</h3>
+            <p class="compatibility-desc">친구의 MBTI 유형을 선택해보세요!</p>
+            <select id="friendType" class="friend-select">
+                <option value="">친구 유형 선택하기</option>
+                <option value="ISTJ">ISTJ - 비버</option>
+                <option value="ISFJ">ISFJ - 코알라</option>
+                <option value="INFJ">INFJ - 부엉이</option>
+                <option value="INTJ">INTJ - 독수리</option>
+                <option value="ISTP">ISTP - 고양이</option>
+                <option value="ISFP">ISFP - 토끼</option>
+                <option value="INFP">INFP - 유니콘</option>
+                <option value="INTP">INTP - 여우</option>
+                <option value="ESTP">ESTP - 호랑이</option>
+                <option value="ESFP">ESFP - 플라밍고</option>
+                <option value="ENFP">ENFP - 돌고래</option>
+                <option value="ENTP">ENTP - 앵무새</option>
+                <option value="ESTJ">ESTJ - 사자</option>
+                <option value="ESFJ">ESFJ - 강아지</option>
+                <option value="ENFJ">ENFJ - 기린</option>
+                <option value="ENTJ">ENTJ - 티라노</option>
+            </select>
+            <button class="check-compatibility-btn" onclick="checkCompatibility()">
+                궁합 확인하기 ✨
             </button>
-
-            <div class="notice">
-                <p>💡 이 검사는 재미로 하는 거예요!<br>실제 MBTI와는 다를 수 있어요 😊</p>
+            <div id="compatibilityResult" class="compatibility-result" style="display:none;">
+                <!-- JavaScript로 동적 생성 -->
             </div>
+        </div>
 
-            <!-- AdSense 광고 -->
-            <div class="ad-container">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-3303070081473891"
-                     data-ad-slot="AUTO"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </main>
+        <!-- 다시하기 버튼 -->
+        <button class="restart-button" onclick="restart()">
+            다시 검사하기 🔄
+        </button>
 
-        <footer>
-            <p>친구들도 검사해보라고 알려주세요!</p>
-        </footer>
+        <div class="notice">
+            <p>💡 이 검사는 재미로 하는 거예요!<br>실제 MBTI와는 다를 수 있어요 😊</p>
+        </div>
+
+        <!-- AdSense 광고 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3303070081473891"
+                 data-ad-slot="AUTO"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
     </div>
+</main>
 
-    <script src="js/compatibility.js"></script>
-    <script src="js/result.js"></script>
+<script>
+    // 햄버거 메뉴
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('open');
+        navLinks.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+            navToggle.classList.remove('open');
+            navLinks.classList.remove('open');
+        }
+    });
+</script>
+<script src="js/compatibility.js"></script>
+<script src="js/result.js"></script>
 </body>
 </html>

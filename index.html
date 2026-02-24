@@ -4,74 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>어린이 MBTI 성격 검사 🌈 — 나는 어떤 성격일까?</title>
-    <meta name="description" content="초등학생을 위한 쉽고 재미있는 MBTI 성격 유형 검사! 12가지 질문으로 16가지 성격 유형 중 나의 유형을 찾아보세요. 약 3분이면 완료!">
+    <meta name="description" content="초등학생을 위한 쉽고 재미있는 MBTI 성격 유형 검사! 16가지 질문으로 16가지 성격 유형 중 나의 유형을 찾아보세요. 약 3분이면 완료!">
     <meta name="keywords" content="어린이 MBTI, 초등학생 성격검사, 어린이 성격유형, MBTI 검사">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/common.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3303070081473891" crossorigin="anonymous"></script>
-    <style>
-        .info-preview-card {
-            background: white;
-            border-radius: 20px;
-            padding: 24px;
-            margin-top: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-        }
-        .info-preview-card h2 {
-            font-size: 1.1rem;
-            color: #4a3b8c;
-            margin-bottom: 14px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-        .mini-article {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 9px 0;
-            border-bottom: 1px solid #f5f5f5;
-            text-decoration: none;
-        }
-        .mini-article:last-of-type { border-bottom: none; }
-        .mini-article .ma-emoji { font-size: 1.4rem; flex-shrink: 0; }
-        .mini-article .ma-title { font-size: 0.92rem; color: #4a3b8c; font-weight: 600; display: block; }
-        .mini-article .ma-desc { font-size: 0.8rem; color: #999; }
-        .more-link {
-            display: block;
-            text-align: center;
-            color: #764ba2;
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 600;
-            margin-top: 12px;
-        }
-        .type-quick-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 6px;
-            margin-top: 12px;
-        }
-        .type-quick-btn {
-            color: white;
-            text-align: center;
-            padding: 10px 4px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.83rem;
-            transition: transform 0.15s;
-        }
-        .type-quick-btn:hover { transform: translateY(-2px); }
-    </style>
 </head>
 <body>
 
 <!-- 네비게이션 -->
 <nav class="site-nav">
     <div class="nav-inner">
-        <a href="index.html" class="nav-logo"><span>🌟</span> 어린이 MBTI</a>
-        <div class="nav-links">
+        <a href="index.html" class="nav-logo">
+            <span class="nav-logo-icon">🌟</span>
+            <span>어린이 MBTI</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
             <a href="index.html" class="active">홈</a>
             <a href="about.html">소개</a>
             <a href="articles/index.html">MBTI 정보</a>
@@ -81,104 +33,123 @@
     </div>
 </nav>
 
-    <div class="container">
-        <header>
+<!-- 메인 콘텐츠 -->
+<main class="index-main">
+
+    <!-- 히어로 카드 -->
+    <div class="hero-card">
+        <div class="hero-header">
             <h1>🌟 나는 어떤 성격일까? 🌟</h1>
             <p class="subtitle">재미있는 질문으로 알아보는 나의 성격 유형!</p>
-        </header>
-
-        <main>
-            <div class="intro-box">
-                <div class="intro-icon">🎨</div>
-                <h2>안녕! 반가워!</h2>
-                <p>12개의 재미있는 질문에 답하면<br>너의 성격 유형을 알려줄게!</p>
-                <p class="time-info">⏱️ 약 3분 정도 걸려요</p>
-            </div>
-
-            <div class="features">
-                <div class="feature-item">
-                    <div class="feature-emoji">🎮</div>
-                    <p>쉽고 재미있어요</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-emoji">🌈</div>
-                    <p>16가지 유형</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-emoji">🎁</div>
-                    <p>귀여운 캐릭터</p>
-                </div>
-            </div>
-
-            <button class="start-button" onclick="startTest()">
-                검사 시작하기 🚀
-            </button>
-
-            <div class="notice">
-                <p>💡 정답은 없어요! 마음 가는 대로 선택해보세요</p>
-            </div>
-        </main>
-
-        <!-- MBTI 정보 미리보기 -->
-        <div class="info-preview-card">
-            <h2>📚 MBTI 더 알아보기</h2>
-            <a href="articles/mbti-intro.html" class="mini-article">
-                <span class="ma-emoji">📖</span>
-                <div><span class="ma-title">MBTI란 무엇인가요?</span><span class="ma-desc">기초 개념과 역사를 쉽게 알아봅니다</span></div>
-            </a>
-            <a href="articles/four-dimensions.html" class="mini-article">
-                <span class="ma-emoji">🔍</span>
-                <div><span class="ma-title">4가지 성격 지표 완전 이해하기</span><span class="ma-desc">E/I, S/N, T/F, J/P 각 지표의 의미</span></div>
-            </a>
-            <a href="articles/school-life.html" class="mini-article">
-                <span class="ma-emoji">🏫</span>
-                <div><span class="ma-title">MBTI로 보는 학교생활</span><span class="ma-desc">유형마다 다른 학교생활 패턴</span></div>
-            </a>
-            <a href="articles/friendship-mbti.html" class="mini-article">
-                <span class="ma-emoji">👫</span>
-                <div><span class="ma-title">MBTI와 친구 관계</span><span class="ma-desc">어떤 유형끼리 잘 맞을까요?</span></div>
-            </a>
-            <a href="articles/index.html" class="more-link">모든 아티클 보기 →</a>
         </div>
 
-        <!-- 유형 바로가기 -->
-        <div class="info-preview-card" style="margin-top: 12px;">
-            <h2>🌈 내 유형 바로 보기</h2>
-            <div class="type-quick-grid">
-                <a href="articles/type-infp.html" class="type-quick-btn" style="background:#7b7abf">INFP</a>
-                <a href="articles/type-infj.html" class="type-quick-btn" style="background:#5a7a6a">INFJ</a>
-                <a href="articles/type-enfp.html" class="type-quick-btn" style="background:#e8984a">ENFP</a>
-                <a href="articles/type-enfj.html" class="type-quick-btn" style="background:#6a9a7a">ENFJ</a>
-                <a href="articles/type-intj.html" class="type-quick-btn" style="background:#3d6b8a">INTJ</a>
-                <a href="articles/type-intp.html" class="type-quick-btn" style="background:#5b8fa8">INTP</a>
-                <a href="articles/type-entj.html" class="type-quick-btn" style="background:#2d5a7a">ENTJ</a>
-                <a href="articles/type-entp.html" class="type-quick-btn" style="background:#4e82a0">ENTP</a>
-                <a href="articles/type-istj.html" class="type-quick-btn" style="background:#6a7a8a">ISTJ</a>
-                <a href="articles/type-isfj.html" class="type-quick-btn" style="background:#7a8a7a">ISFJ</a>
-                <a href="articles/type-estj.html" class="type-quick-btn" style="background:#5a7090">ESTJ</a>
-                <a href="articles/type-esfj.html" class="type-quick-btn" style="background:#8a6a7a">ESFJ</a>
-                <a href="articles/type-istp.html" class="type-quick-btn" style="background:#7a8a6a">ISTP</a>
-                <a href="articles/type-isfp.html" class="type-quick-btn" style="background:#9a8a7a">ISFP</a>
-                <a href="articles/type-estp.html" class="type-quick-btn" style="background:#8a7060">ESTP</a>
-                <a href="articles/type-esfp.html" class="type-quick-btn" style="background:#c87a6a">ESFP</a>
+        <div class="intro-box">
+            <span class="intro-icon">🎨</span>
+            <h2>안녕! 반가워!</h2>
+            <p>16개의 재미있는 질문에 답하면<br>너의 성격 유형을 알려줄게!</p>
+            <span class="time-info">⏱️ 약 3분 정도 걸려요</span>
+        </div>
+
+        <div class="features">
+            <div class="feature-item">
+                <span class="feature-emoji">🎮</span>
+                <p>쉽고 재미있어요</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-emoji">🌈</span>
+                <p>16가지 유형</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-emoji">🎁</span>
+                <p>귀여운 캐릭터</p>
             </div>
         </div>
 
-        <footer>
-            <div style="margin-bottom: 8px;">
-                <a href="about.html" style="color:rgba(255,255,255,0.8); margin: 0 8px; text-decoration:none;">소개</a>
-                <a href="articles/index.html" style="color:rgba(255,255,255,0.8); margin: 0 8px; text-decoration:none;">MBTI 정보</a>
-                <a href="contact.html" style="color:rgba(255,255,255,0.8); margin: 0 8px; text-decoration:none;">문의</a>
-                <a href="privacy.html" style="color:rgba(255,255,255,0.8); margin: 0 8px; text-decoration:none;">개인정보처리방침</a>
-            </div>
-            <p>재미로 하는 성격 검사예요 😊</p>
-        </footer>
+        <button class="start-button" onclick="startTest()">
+            검사 시작하기 🚀
+        </button>
+
+        <div class="notice">
+            <p>💡 정답은 없어요! 마음 가는 대로 선택해보세요</p>
+        </div>
     </div>
 
-    <script>
-        function startTest() {
-            window.location.href = 'test.html';
+    <!-- MBTI 정보 미리보기 -->
+    <div class="info-preview-card">
+        <h2>📚 MBTI 더 알아보기</h2>
+        <a href="articles/mbti-intro.html" class="mini-article">
+            <span class="ma-emoji">📖</span>
+            <div><span class="ma-title">MBTI란 무엇인가요?</span><span class="ma-desc">기초 개념과 역사를 쉽게 알아봅니다</span></div>
+        </a>
+        <a href="articles/four-dimensions.html" class="mini-article">
+            <span class="ma-emoji">🔍</span>
+            <div><span class="ma-title">4가지 성격 지표 완전 이해하기</span><span class="ma-desc">E/I, S/N, T/F, J/P 각 지표의 의미</span></div>
+        </a>
+        <a href="articles/school-life.html" class="mini-article">
+            <span class="ma-emoji">🏫</span>
+            <div><span class="ma-title">MBTI로 보는 학교생활</span><span class="ma-desc">유형마다 다른 학교생활 패턴</span></div>
+        </a>
+        <a href="articles/friendship-mbti.html" class="mini-article">
+            <span class="ma-emoji">👫</span>
+            <div><span class="ma-title">MBTI와 친구 관계</span><span class="ma-desc">어떤 유형끼리 잘 맞을까요?</span></div>
+        </a>
+        <a href="articles/index.html" class="more-link">모든 아티클 보기 →</a>
+    </div>
+
+    <!-- 유형 바로가기 -->
+    <div class="info-preview-card">
+        <h2>🌈 내 유형 바로 보기</h2>
+        <div class="type-quick-grid">
+            <a href="articles/type-infp.html" class="type-quick-btn" style="background:#7b7abf">INFP</a>
+            <a href="articles/type-infj.html" class="type-quick-btn" style="background:#5a7a6a">INFJ</a>
+            <a href="articles/type-enfp.html" class="type-quick-btn" style="background:#e8984a">ENFP</a>
+            <a href="articles/type-enfj.html" class="type-quick-btn" style="background:#6a9a7a">ENFJ</a>
+            <a href="articles/type-intj.html" class="type-quick-btn" style="background:#3d6b8a">INTJ</a>
+            <a href="articles/type-intp.html" class="type-quick-btn" style="background:#5b8fa8">INTP</a>
+            <a href="articles/type-entj.html" class="type-quick-btn" style="background:#2d5a7a">ENTJ</a>
+            <a href="articles/type-entp.html" class="type-quick-btn" style="background:#4e82a0">ENTP</a>
+            <a href="articles/type-istj.html" class="type-quick-btn" style="background:#6a7a8a">ISTJ</a>
+            <a href="articles/type-isfj.html" class="type-quick-btn" style="background:#7a8a7a">ISFJ</a>
+            <a href="articles/type-estj.html" class="type-quick-btn" style="background:#5a7090">ESTJ</a>
+            <a href="articles/type-esfj.html" class="type-quick-btn" style="background:#8a6a7a">ESFJ</a>
+            <a href="articles/type-istp.html" class="type-quick-btn" style="background:#7a8a6a">ISTP</a>
+            <a href="articles/type-isfp.html" class="type-quick-btn" style="background:#9a8a7a">ISFP</a>
+            <a href="articles/type-estp.html" class="type-quick-btn" style="background:#8a7060">ESTP</a>
+            <a href="articles/type-esfp.html" class="type-quick-btn" style="background:#c87a6a">ESFP</a>
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <div class="index-footer">
+        <div>
+            <a href="about.html">소개</a>
+            <a href="articles/index.html">MBTI 정보</a>
+            <a href="contact.html">문의</a>
+            <a href="privacy.html">개인정보처리방침</a>
+        </div>
+        <p>재미로 하는 성격 검사예요 😊</p>
+    </div>
+
+</main>
+
+<script>
+    function startTest() {
+        window.location.href = 'test.html';
+    }
+
+    // 햄버거 메뉴
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('open');
+        navLinks.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+            navToggle.classList.remove('open');
+            navLinks.classList.remove('open');
         }
-    </script>
+    });
+</script>
 </body>
 </html>

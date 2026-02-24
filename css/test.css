@@ -1,120 +1,162 @@
-/* 기본 설정 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ===== test.html 전용 스타일 ===== */
+/* common.css에서 기본 레이아웃, nav 처리 */
 
-body {
-    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+/* 메인 래퍼 - 퀴즈 카드 중앙 정렬 */
+.test-main {
+    flex: 1;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 20px;
+    justify-content: center;
+    padding: 32px 20px 48px;
+    min-height: calc(100vh - 64px);
 }
 
+/* 퀴즈 컨테이너 */
 .container {
-    max-width: 700px;
+    max-width: 680px;
     width: 100%;
     background: white;
-    border-radius: 30px;
-    padding: 40px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border-radius: 28px;
+    padding: 44px 40px;
+    box-shadow: 0 12px 56px rgba(0, 0, 0, 0.14);
+    position: relative;
+    overflow: hidden;
+    animation: cardIn 0.5s ease;
 }
 
-/* 진행률 바 */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+}
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== 진행률 바 ===== */
 .progress-container {
     position: relative;
-    background: #f0f0f0;
-    height: 30px;
-    border-radius: 15px;
-    margin-bottom: 40px;
-    overflow: hidden;
+    background: #f1f0ff;
+    height: 10px;
+    border-radius: 99px;
+    margin-bottom: 36px;
+    overflow: visible;
 }
 
 .progress-bar {
     height: 100%;
     background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-    border-radius: 15px;
-    transition: width 0.3s ease;
+    border-radius: 99px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     width: 0%;
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    background: white;
+    border: 3px solid #764ba2;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
 }
 
 .progress-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
-    color: #333;
-    font-size: 0.9rem;
+    top: -28px;
+    right: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #764ba2;
+    background: white;
+    padding: 2px 10px;
+    border-radius: 99px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* 질문 영역 */
+/* ===== 질문 영역 ===== */
 .question-container {
     text-align: center;
-    margin-bottom: 40px;
-    animation: fadeIn 0.5s ease;
+    margin-bottom: 36px;
+    animation: fadeIn 0.45s ease;
 }
 
 .question-number {
     display: inline-block;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
+    padding: 6px 18px;
+    border-radius: 99px;
+    font-size: 0.82rem;
+    font-weight: 700;
     margin-bottom: 20px;
+    letter-spacing: 0.3px;
 }
 
 .question-text {
-    font-size: 1.5rem;
-    color: #333;
-    line-height: 1.6;
-    padding: 0 10px;
+    font-size: 1.45rem;
+    color: #1e1b4b;
+    line-height: 1.65;
+    padding: 0 8px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
-/* 선택지 */
+/* ===== 선택지 ===== */
 .options-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
+    gap: 12px;
+    margin-bottom: 28px;
 }
 
 .option-button {
     width: 100%;
-    padding: 25px;
-    font-size: 1.1rem;
-    color: #333;
-    background: #f8f9fa;
-    border: 3px solid #e0e0e0;
-    border-radius: 15px;
+    padding: 20px 24px;
+    font-size: 1.05rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #374151;
+    background: #fafafa;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     text-align: left;
     position: relative;
     overflow: hidden;
+    font-weight: 500;
+    line-height: 1.5;
 }
 
 .option-button:hover {
-    transform: translateY(-3px);
-    border-color: #667eea;
-    background: #f0f4ff;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+    transform: translateY(-2px);
+    border-color: #818cf8;
+    background: #f5f3ff;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.15);
+    color: #1e1b4b;
 }
 
 .option-button.selected {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    border-color: #667eea;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(99, 102, 241, 0.35);
+    font-weight: 600;
 }
 
+/* 물결 효과 */
 .option-button::before {
     content: '';
     position: absolute;
@@ -122,7 +164,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
     transition: left 0.5s ease;
 }
 
@@ -130,76 +172,75 @@ body {
     left: 100%;
 }
 
-/* 네비게이션 버튼 */
+/* ===== 네비게이션 버튼 ===== */
 .nav-buttons {
     display: flex;
-    gap: 15px;
-    margin-top: 30px;
+    gap: 12px;
+    margin-top: 8px;
 }
 
 .nav-btn {
     flex: 1;
     padding: 15px;
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 0.97rem;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    letter-spacing: -0.2px;
 }
 
 .prev-btn {
-    background: #f0f0f0;
-    color: #666;
+    background: #f3f4f6;
+    color: #6b7280;
+    border: 2px solid #e5e7eb;
 }
 
 .prev-btn:hover:not(:disabled) {
-    background: #e0e0e0;
-    transform: translateX(-3px);
+    background: #e5e7eb;
+    color: #374151;
+    transform: translateX(-2px);
 }
 
 .next-btn {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
 }
 
 .next-btn:hover:not(:disabled) {
-    transform: translateX(3px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    transform: translateX(2px);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
 }
 
 .nav-btn:disabled {
-    opacity: 0.4;
+    opacity: 0.35;
     cursor: not-allowed;
+    transform: none !important;
 }
 
-/* 애니메이션 */
+/* ===== 애니메이션 ===== */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    from { opacity: 0; transform: translateX(-20px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
-/* 반응형 */
+/* ===== 반응형 ===== */
 @media (max-width: 600px) {
+    .test-main {
+        padding: 20px 14px 40px;
+        align-items: flex-start;
+    }
+
     .container {
-        padding: 25px;
+        padding: 32px 20px;
     }
 
     .question-text {
@@ -207,15 +248,21 @@ body {
     }
 
     .option-button {
-        padding: 20px;
-        font-size: 1rem;
+        padding: 17px 18px;
+        font-size: 0.97rem;
     }
 
     .nav-buttons {
         flex-direction: column;
+        gap: 10px;
     }
 
     .nav-btn {
         width: 100%;
+        padding: 14px;
+    }
+
+    .progress-text {
+        font-size: 0.75rem;
     }
 }
