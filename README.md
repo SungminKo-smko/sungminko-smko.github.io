@@ -129,7 +129,7 @@ mbti-test/
 ---
 
 **만든 사람**: Ko Sungmin  
-**문의**: highwind7777@gmail.com  
+**문의**: sungmin.ko@gmail.com  
 **GitHub**: [@SungminKo-smko](https://github.com/SungminKo-smko)
 
 즐거운 검사 되세요! 🎉
